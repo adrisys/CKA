@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: fivereplicas
+  name: fivereplicas
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: fivereplicas
+  template:
+    metadata:
+      labels:
+        app: fivereplicas
+    spec:
+      containers:
+      - image: nginx
+        name: nginx

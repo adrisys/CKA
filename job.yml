@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    job-name: nodeversion
+  name: nodeversion
+spec:
+  completions: 1
+  parallelism: 1
+  selector:
+    matchLabels:
+      job-name: nodeversion
+  template:
+    metadata:
+      labels:
+        job-name: nodeversion
+    spec:
+      containers:
+      - command:
+        - node
+        - -v
+        image: node
+        imagePullPolicy: Always
+        name: nodeversion
+      restartPolicy: Never

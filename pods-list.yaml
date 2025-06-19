@@ -1,0 +1,30 @@
+NAMESPACE       NAME                                        READY   STATUS      RESTARTS       AGE
+default         busyboxsleep                                1/1     Running     3 (43m ago)    3h43m
+default         busyboxsleep2                               0/1     Completed   0              3h39m
+default         deploy-affinity-748758676c-6zdd8            1/1     Running     0              9h
+default         front-app                                   1/1     Running     0              8h
+default         my-dep-658c7ffddc-xpft6                     1/1     Running     0              4h8m
+default         nginx                                       1/1     Running     0              23h
+default         nginx-deployment-6cfb98644c-72p8l           1/1     Running     0              4h16m
+default         nginxdev1                                   1/1     Running     0              4m55s
+default         nginxpod                                    1/1     Running     0              4h18m
+default         pod                                         1/1     Running     0              10h
+default         pod-secure                                  1/1     Running     65 (42s ago)   21h
+default         security-context-demo-4                     1/1     Running     0              23h
+default         testpod                                     1/1     Running     0              4h17m
+default         web-pod                                     1/1     Running     0              27h
+default         webapp                                      1/1     Running     0              9h
+ingress-nginx   ingress-nginx-controller-578c564c54-7fpgw   1/1     Running     0              27h
+kube-flannel    kube-flannel-ds-245x6                       1/1     Running     1 (2d2h ago)   2d2h
+kube-flannel    kube-flannel-ds-965d7                       1/1     Running     0              2d3h
+kube-flannel    kube-flannel-ds-skhsm                       1/1     Running     1 (2d2h ago)   2d2h
+kube-system     coredns-674b8bbfcf-lm7sn                    1/1     Running     0              2d3h
+kube-system     coredns-674b8bbfcf-vh29g                    1/1     Running     0              2d3h
+kube-system     etcd-controlplane1                          1/1     Running     3              2d3h
+kube-system     kube-apiserver-controlplane1                1/1     Running     3              2d3h
+kube-system     kube-controller-manager-controlplane1       1/1     Running     2              2d3h
+kube-system     kube-proxy-7mfvp                            1/1     Running     0              2d3h
+kube-system     kube-proxy-hl96c                            1/1     Running     1 (2d2h ago)   2d2h
+kube-system     kube-proxy-n8f9s                            1/1     Running     1 (2d2h ago)   2d2h
+kube-system     kube-scheduler-controlplane1                1/1     Running     3              2d3h
+kube-system     metrics-server-8467fcc7b7-zd7bm             1/1     Running     0              23h
