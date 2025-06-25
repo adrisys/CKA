@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cafe-backend
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cafe-backend
+  template:
+    metadata:
+      labels:
+        app: cafe-backend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cafe-backend
+  namespace: default
+spec:
+  selector:
+    app: cafe-backend
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
