@@ -1,0 +1,50 @@
+# Custom values for ArgoCD installation
+
+# Global configuration
+global:
+  # Domain for ArgoCD
+  domain: argocd.adrilab.xyz
+
+# Server configuration
+server:
+  # Enable ingress
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - argocd.adrilab.xyz
+    tls:
+      - secretName: argocd-tls
+        hosts:
+          - argocd.adrilab.xyz
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+
+  # Server configuration
+  config:
+    # Enable insecure mode for easier access
+    server.insecure: true
+    
+# Configs
+configs:
+  params:
+    # Disable TLS for easier setup
+    server.insecure: true
+    
+# Redis configuration (use included Redis)
+redis:
+  enabled: true
+
+# ApplicationSet controller
+applicationSet:
+  enabled: true
+
+# Notifications controller
+notifications:
+  enabled: true
+
+# Dex (disable for simpler setup)
+dex:
+  enabled: false
