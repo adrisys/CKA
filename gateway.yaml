@@ -1,20 +1,14 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: adrilab-gateway
-  namespace: test-api-gateway
+  name: test-gateway
+  namespace: ingress-test
 spec:
-  gatewayClassName: nginx-gw-class
+  gatewayClassName: nginx
   listeners:
-  - name: https
-    protocol: HTTPS
-    port: 443
-    hostname: api.adrilab.xyz
-    tls:
-      mode: Terminate
-      certificateRefs:
-      - name: adrilab-tls
-        kind: Secret
+  - protocol: HTTP
+    port: 80
+    name: prod-web-gw
     allowedRoutes:
       namespaces:
         from: Same

@@ -1,0 +1,22 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: gateway-flask
+  namespace: flask-demo-app
+spec:
+  gatewayClassName: nginx
+  listeners:
+  - name: http
+    port: 80
+    protocol: HTTP
+    hostname: "adrilab.xyz"
+  - name: https
+    port: 443
+    protocol: HTTPS
+    hostname: "adrilab.xyz"
+    tls:
+      mode: Terminate
+      certificateRefs:
+      - kind: Secret
+        name: adrilab-xyz-secret
+        namespace: flask-demo-app

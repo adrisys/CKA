@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: flask-pv-claim
+  namespace: flask-demo-app
+spec:
+  storageClassName: ""  # This prevents using any StorageClass
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+

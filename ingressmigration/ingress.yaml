@@ -1,0 +1,43 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    some-ingress-controller.example.org/tls-redirect: "True"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: example-ingress
+  namespace: migration
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: foo.adrilab.xyz
+      http:
+        paths:
+          - backend:
+              service:
+                name: foo
+                port:
+                  number: 80
+            path: /orders
+            pathType: Prefix
+          - backend:
+              service:
+                name: foo
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+    - host: bar.adrilab.xyz
+      http:
+        paths:
+          - backend:
+              service:
+                name: bar
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - foo.adrilab.xyz
+        - bar.adrilab.xyz
+      secretName: adrilab-xyz-secret
