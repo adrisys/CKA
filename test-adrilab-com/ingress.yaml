@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"nginx.ingress.kubernetes.io/rewrite-target":"/"},"name":"adrilab-ingress","namespace":"test-adrilab-com"},"spec":{"ingressClassName":"nginx","rules":[{"host":"adrilab.com","http":{"paths":[{"backend":{"service":{"name":"test-adrilab-com","port":{"number":80}}},"path":"/orders","pathType":"Prefix"},{"backend":{"service":{"name":"test-adrilab-com","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}],"tls":[{"hosts":["adrilab.com"],"secretName":"adrilab-com-tls"}]}}
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: adrilab-ingress
+  namespace: test-adrilab-com
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: flask-app.adrilab.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: test-adrilab-com
+                port:
+                  number: 80
+            path: /orders
+            pathType: Prefix
+          - backend:
+              service:
+                name: test-adrilab-com
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+#  tls:
+#    - hosts:
+#        - flask-app.adrilab.com
+#      secretName: adrilab-com-tls
